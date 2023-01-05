@@ -1,7 +1,9 @@
+import { Text } from '../components';
+
 export const Home = () => {
     return (
         <div>
-            <p>Home</p>
+            <Text>Tasks</Text>
         </div>
     );
 };
