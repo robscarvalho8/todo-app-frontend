@@ -9,7 +9,9 @@ export const Home = () => {
     const handleOkButton = () => {
         setTasks((previous) => {
             const copy = [...previous];
-            copy.push({ label: taskName });
+            if (taskName) {
+                copy.push({ label: taskName });
+            }
             return copy;
         });
 
