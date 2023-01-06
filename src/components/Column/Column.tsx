@@ -6,18 +6,20 @@ import {
     BorderRadiusProps,
     color,
     ColorProps,
+    flexbox,
+    FlexboxProps,
     layout,
     LayoutProps,
     space,
     SpaceProps,
 } from 'styled-system';
 
-type ColumnProps = LayoutProps & SpaceProps & ColorProps & BorderRadiusProps & BorderLeftProps;
+type ColumnProps = LayoutProps & SpaceProps & ColorProps & BorderRadiusProps & BorderLeftProps & FlexboxProps;
 
 export const Column = styled.div<ColumnProps>`
     display: flex;
     flex-direction: column;
-
+    ${flexbox}
     ${layout}
     ${space}
     ${color}
