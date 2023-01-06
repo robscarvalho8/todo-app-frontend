@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { height } from 'styled-system';
 
 type IconProps = {
     variant: string;
