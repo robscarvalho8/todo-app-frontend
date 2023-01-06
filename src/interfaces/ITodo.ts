@@ -3,3 +3,7 @@ export interface ITodo {
     task: string;
     isDone: number;
 }
+
+export interface ITodoAll {
+    items: ITodo[];
+}
