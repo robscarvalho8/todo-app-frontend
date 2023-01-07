@@ -10,11 +10,17 @@ export const useTodo = () => {
 
         if (status !== 200) throw new Error();
         setTasks(data.items);
-        console.log(tasks);
+    }, []);
+
+    const createTodo = useCallback(async (todo: Pick<ITodo, 'task' | 'isDone'>) => {
+        const { status } = await TodoService.createTodo(todo);
+
+        if (status !== 201) throw new Error();
     }, []);
 
     return {
         tasks,
         getAllTodos,
+        createTodo,
     };
 };
