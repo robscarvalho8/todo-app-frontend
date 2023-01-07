@@ -5,7 +5,7 @@ import { useTodo } from '../hooks/useTodo';
 const SECONDS_DEFAULT = 2;
 
 export const Home = () => {
-    const { tasks, getAllTodos, createTodo, updateTodo } = useTodo();
+    const { tasks, getAllTodos, createTodo, updateTodo, deleteTodo } = useTodo();
     const [taskName, setTaskName] = useState('');
     const [seconds, setSeconds] = useState(SECONDS_DEFAULT);
     const [timer, setTimer] = useState<any>();

@@ -24,10 +24,17 @@ export const useTodo = () => {
         if (status !== 200) throw new Error();
     }, []);
 
+    const deleteTodo = useCallback(async (id: string) => {
+        const { status } = await TodoService.deleteTodo(id);
+
+        if (status !== 204) throw new Error();
+    }, []);
+
     return {
         tasks,
         getAllTodos,
         createTodo,
         updateTodo,
+        deleteTodo,
     };
 };

@@ -22,6 +22,10 @@ export const Button = styled.button<ButtonProps>`
                 borderRadius: '4px',
                 boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
             },
+            icon: {
+                backgroundColor: 'transparent',
+                padding: '0px',
+            },
         },
     })}
     ${space}
