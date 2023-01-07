@@ -1,4 +1,3 @@
-import { Button } from '../Button';
 import { Column } from '../Column';
 import { Icon } from '../Icon';
 import { Row } from '../Row';
@@ -29,11 +28,6 @@ export const ListItem: React.FC<ListItemProps> = ({ index, id, task, isDone, isA
         >
             <Row>
                 <Text flex={1}>{task}</Text>
-                {isDone === 0 && (
-                    <Button variant="icon">
-                        <Icon variant="trash" />
-                    </Button>
-                )}
                 {isDone === 1 && <Icon variant="done-white" />}
             </Row>
         </Column>

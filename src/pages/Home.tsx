@@ -16,7 +16,7 @@ export const Home = () => {
         await createTodo({ task: taskName, isDone: 0 });
         await getAllTodos();
         setTaskName('');
-    }, [createTodo, taskName]);
+    }, [createTodo, getAllTodos, taskName]);
 
     const secondsToTime = (secs: number) => {
         const divisorMinute = secs % 3600;
@@ -68,6 +68,14 @@ export const Home = () => {
         }
     }, [taskIndex, tasks, updateTodo, getAllTodos]);
 
+    const handleDeleteButton = useCallback(async () => {
+        const task = tasks[taskIndex];
+        if (task) {
+            await deleteTodo(task.id);
+            await getAllTodos();
+        }
+    }, [taskIndex, tasks, deleteTodo, getAllTodos]);
+
     const handleStageStatus = useMemo(() => {
         switch (stage) {
             case 'ready':
@@ -94,6 +102,18 @@ export const Home = () => {
                                 START
                             </Text>
                         </Button>
+                        <Row py="20px">
+                            <Button variant="primary" onClick={handleDeleteButton}>
+                                <Text
+                                    fontFamily="secondary"
+                                    fontSize="bodyExtraLarge"
+                                    fontWeight="bold"
+                                    color="primary"
+                                >
+                                    DELETE
+                                </Text>
+                            </Button>
+                        </Row>
                     </Fragment>
                 );
 
@@ -113,6 +133,11 @@ export const Home = () => {
                                 <Icon variant="stop"></Icon>
                             </Button>
                         </Row>
+                        <Button variant="primary" onClick={handleDeleteButton}>
+                            <Text fontFamily="secondary" fontSize="bodyExtraLarge" fontWeight="bold" color="primary">
+                                DELETE
+                            </Text>
+                        </Button>
                     </Fragment>
                 );
 
@@ -139,10 +164,22 @@ export const Home = () => {
                                 START
                             </Text>
                         </Button>
+                        <Row py="20px">
+                            <Button variant="primary" onClick={handleDeleteButton}>
+                                <Text
+                                    fontFamily="secondary"
+                                    fontSize="bodyExtraLarge"
+                                    fontWeight="bold"
+                                    color="primary"
+                                >
+                                    DELETE
+                                </Text>
+                            </Button>
+                        </Row>
                     </Fragment>
                 );
         }
-    }, [handlePauseButton, handleStopButton, handleRestartButton, handleDoneButton, stage]);
+    }, [handlePauseButton, handleStopButton, handleRestartButton, handleDoneButton, handleDeleteButton, stage]);
 
     useEffect(() => {
         getAllTodos();
