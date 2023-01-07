@@ -1,4 +1,6 @@
 import { Column } from '../Column';
+import { Icon } from '../Icon';
+import { Row } from '../Row';
 import { Text } from '../Text';
 
 export type ListItemProps = {
@@ -24,7 +26,10 @@ export const ListItem: React.FC<ListItemProps> = ({ index, id, task, isDone, isA
             borderLeftColor={isActive ? '#fff' : 'transparent'}
             onClick={() => onClick(index)}
         >
-            <Text>{task}</Text>
+            <Row>
+                <Text flex={1}>{task}</Text>
+                {isDone === 1 && <Icon variant="done-white" />}
+            </Row>
         </Column>
     );
 };
