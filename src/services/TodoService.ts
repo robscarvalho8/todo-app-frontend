@@ -1,8 +1,8 @@
-import { ITodoAll } from '../interfaces/ITodo';
+import { ITodo, ITodoAll } from '../interfaces/ITodo';
 import { Api } from '../providers';
 
-const getAll = () => Api.get<ITodoAll>('/v1/todos');
+const getAllTodos = () => Api.get<ITodoAll>('/v1/todos');
 
 export const TodoService = {
-    getAll,
+    getAllTodos,
 };
