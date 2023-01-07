@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {
-    borderLeft,
-    BorderLeftProps,
+    border,
+    BorderProps,
     borderRadius,
     BorderRadiusProps,
     color,
@@ -14,15 +14,21 @@ import {
     SpaceProps,
 } from 'styled-system';
 
-type ColumnProps = LayoutProps & SpaceProps & ColorProps & BorderRadiusProps & BorderLeftProps & FlexboxProps;
+type ColumnProps = LayoutProps &
+    SpaceProps &
+    ColorProps &
+    BorderRadiusProps &
+    BorderProps &
+    FlexboxProps & { cursor?: string };
 
 export const Column = styled.div<ColumnProps>`
     display: flex;
     flex-direction: column;
+    ${({ cursor }) => cursor && `${cursor};`}
     ${flexbox}
     ${layout}
     ${space}
     ${color}
     ${borderRadius}
-    ${borderLeft}
+    ${border}
 `;
